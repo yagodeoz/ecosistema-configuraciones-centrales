@@ -2,11 +2,15 @@ spring:
   rabbitmq:
     host: rabbitmq
     port: 5672
-    username: guest
-    password: guest
+    username: ${RABBITMQ_DEFAULT_USER:guest}
+    password: ${RABBITMQ_DEFAULT_PASS:guest}
 
 keycloak:
-  hostname: keycloak.local
-  theme: genericempresa
+  hostname: ${KEYCLOAK_HOSTNAME:localhost}
+  theme: ${EMPRESA_TEMA:genericempresa}
   realm-file: classpath:realm-config/realm-ecosistema.json
-
+  ldap:
+    url: ${LDAP_URL:ldap://ldap:389}
+    bind-dn: ${LDAP_BIND_DN:cn=admin,dc=example,dc=org}
+    bind-credential: ${LDAP_PASSWORD:admin}
+    user-dn-suffix: ${LDAP_USER_DN_SUFFIX:ou=users,dc=example,dc=org}

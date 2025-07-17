@@ -9,8 +9,15 @@ keycloak:
   hostname: ${KEYCLOAK_HOSTNAME:localhost}
   theme: ${EMPRESA_TEMA:genericempresa}
   realm-file: classpath:realm-config/realm-ecosistema.json
+  db:
+    vendor: postgres
+    url: jdbc:postgresql://postgres:5432/keycloak
+    username: keycloak
+    password: password
   ldap:
     url: ${LDAP_URL:ldap://ldap:389}
     bind-dn: ${LDAP_BIND_DN:cn=admin,dc=example,dc=org}
     bind-credential: ${LDAP_PASSWORD:admin}
     user-dn-suffix: ${LDAP_USER_DN_SUFFIX:ou=users,dc=example,dc=org}
+
+

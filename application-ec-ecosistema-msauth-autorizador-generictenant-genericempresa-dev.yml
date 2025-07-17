@@ -1,6 +1,4 @@
 spring:
-  config:
-    import: configserver:${CONFIG_URI}
   rabbitmq:
     host: rabbitmq
     port: 5672
